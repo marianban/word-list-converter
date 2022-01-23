@@ -1,0 +1,35 @@
+.spinner {
+  --dot-size: 10px;
+  position: relative;
+  animation: spinnerAnimation 1s ease-in-out 0s infinite;
+  margin: calc(var(--dot-size) * 0.5);
+}
+
+@keyframes spinnerAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner__dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background-color: var(--theme-color);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 1px solid #c2beaa;
+  animation: dotAnimation 1s ease-in-out 0s infinite alternate;
+}
+
+@keyframes dotAnimation {
+  from {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}

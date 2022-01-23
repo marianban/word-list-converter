@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-// import useVirtual from 'react-cool-virtual';
 import { useVirtual } from 'react-virtual';
 import './Words.css';
 
@@ -16,15 +15,7 @@ export const Words = (props) => {
       () => ({ height: 35 * words.length, width: 500 }),
       [words.length]
     ),
-    // overscan: 5,
   });
-
-  // const columnVirtualizer = useVirtual({
-  //   horizontal: true,
-  //   size: Math.min(colSize, words.length),
-  //   parentRef,
-  //   estimateSize: React.useCallback(() => 100, []),
-  // });
 
   return (
     <>
@@ -39,14 +30,11 @@ export const Words = (props) => {
         <div
           style={{
             height: `${rowVirtualizer.totalSize}px`,
-            // width: `${columnVirtualizer.totalSize}px`,
             width: '100%',
             position: 'relative',
           }}
         >
           {rowVirtualizer.virtualItems.map((virtualRow) => (
-            // <React.Fragment key={`row-${virtualRow.index}`}>
-            //   {columnVirtualizer.virtualItems.map((virtualColumn) => (
             <div
               role="listitem"
               key={`row-${virtualRow.index}`}
@@ -59,17 +47,13 @@ export const Words = (props) => {
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                // width: `${virtualColumn.size}px`,
                 width: '100%',
                 height: `${virtualRow.size}px`,
-                // transform: `translateX(${virtualColumn.start}px)
                 transform: `translateY(${virtualRow.start}px)`,
               }}
             >
               {words[virtualRow.index]}
             </div>
-            //   ))}
-            // </React.Fragment>
           ))}
         </div>
       </div>
